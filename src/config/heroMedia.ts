@@ -9,13 +9,15 @@ export interface HeroMediaSlots {
   nightPoster: string;
 }
 
+const base = import.meta.env.BASE_URL;
+
 export const HERO_MEDIA: HeroMediaSlots = {
   morningVideo:
-    '/assets/aistudio/Smooth_rotating_solar_panels_ani__def0fbd6_f03406ae.mp4',
+    `${base}assets/aistudio/Smooth_rotating_solar_panels_ani__def0fbd6_f03406ae.mp4`,
   nightVideo:
-    '/assets/aistudio/Animate_wind_solar_panel_image_d078f940_84317fbb.mp4',
+    `${base}assets/aistudio/Animate_wind_solar_panel_image_d078f940_84317fbb.mp4`,
   morningPoster:
-    '/assets/aistudio/Teal-Tinted_Wind_Farm_Panorama_a7484e49.png',
+    `${base}assets/aistudio/Teal-Tinted_Wind_Farm_Panorama_a7484e49.png`,
   nightPoster:
-    '/assets/aistudio/Moonlit_Wind_Farm_Over_Mountain_Fields_82d2e735.png',
+    `${base}assets/aistudio/Moonlit_Wind_Farm_Over_Mountain_Fields_82d2e735.png`,
 };
