@@ -79,7 +79,7 @@ export function CapabilitiesSection() {
     >
       <video
         className="systems-video"
-        src="/assets/aistudio/Wind_turbine_animation_video_7c0df9fc_a808907d.mp4"
+        src={`${import.meta.env.BASE_URL}assets/aistudio/Wind_turbine_animation_video_7c0df9fc_a808907d.mp4`}
         autoPlay
         loop
         muted
