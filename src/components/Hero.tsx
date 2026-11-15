@@ -133,6 +133,8 @@ export function Hero({
         </>
       )}
 
+      <div className="bar-spacer" aria-hidden="true" />
+
       <Navbar
         mode={mode}
         onOpenQuote={onOpenQuote}
@@ -268,3 +270,4 @@ export function Hero({
     </section>
   );
 }
+

@@ -169,8 +169,12 @@ body {
 
 /* Top navigation bar */
 .bar {
-  position: relative;
-  z-index: 10;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 40;
+  transition: background-color 300ms ease, border-color 300ms ease;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -178,6 +182,31 @@ body {
   padding: calc(28 * var(--u)) var(--site-x) 0;
   width: 100%;
   margin: 0;
+}
+
+/* Invisible placeholder that keeps the hero layout exactly as it was
+   now that .bar is fixed and out of the flex flow. Height matches the
+   bar: top padding + tallest control. */
+.bar-spacer {
+  height: calc(70 * var(--u));
+  flex-shrink: 0;
+}
+
+/* A fixed header needs a backdrop once the page scrolls, so the
+   wordmark stays legible over every section below the hero. */
+.bar.is-scrolled {
+  background: rgba(5, 8, 13, 0.62);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px) saturate(1.5);
+  -webkit-backdrop-filter: blur(20px) saturate(1.5);
+}
+
+.bar.is-scrolled .logo {
+  color: #fff;
+}
+
+.bar.is-scrolled .logo svg {
+  color: #d8ee8e;
 }
 
 .logo {
@@ -488,6 +517,10 @@ body {
     gap: 12px;
   }
 
+  .bar-spacer {
+    height: 56px;
+  }
+
   .logo {
     font-size: 21px;
     gap: 8px;
@@ -535,11 +568,11 @@ body {
   }
 
   .mobile-nav {
-    position: absolute;
+    position: fixed;
     top: 68px;
     left: 16px;
     right: 16px;
-    z-index: 30;
+    z-index: 45;
     display: flex;
     flex-direction: column;
     padding: 8px;
@@ -682,4 +715,5 @@ body {
 #how-it-works p {
   text-shadow: 0 2px 14px rgba(0, 0, 0, 0.68);
 }
+
 

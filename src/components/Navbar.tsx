@@ -17,6 +17,14 @@ const NAV_ITEMS = [
 
 export function Navbar({ mode, onOpenQuote }: NavbarProps) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 24);
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   useEffect(() => {
     if (!menuOpen) return;
@@ -31,7 +39,7 @@ export function Navbar({ mode, onOpenQuote }: NavbarProps) {
 
   return (
     <>
-      <header className="bar">
+      <header className={scrolled ? 'bar is-scrolled' : 'bar'}>
         <a href="#top" className="logo" aria-label="Windora home">
           <motion.svg
             viewBox="0 0 38 38"
@@ -104,3 +112,4 @@ export function Navbar({ mode, onOpenQuote }: NavbarProps) {
     </>
   );
 }
+
